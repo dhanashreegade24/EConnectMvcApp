@@ -15,21 +15,21 @@ public class ProductController : ControllerBase
         _service = service;
     }
 
-    //[HttpGet]
-    //public async Task<IActionResult> Get()
-    //    => Ok(await _service.GetAllAsync());
+    [HttpGet]
+    public async Task<IActionResult> Get()
+        => Ok(await _service.GetAllAsync());
 
-    //[HttpGet("{id}")]
-    //public async Task<IActionResult> Get(int id)
-    //{
-    //    var data = await _service.GetByIdAsync(id);
-    //    return data == null ? NotFound() : Ok(data);
-    //}
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var data = await _service.GetByIdAsync(id);
+        return data == null ? NotFound() : Ok(data);
+    }
 
-    //[HttpPost]
-    //public async Task<IActionResult> Post(Product product)
-    //{
-    //    await _service.AddAsync(product);
-    //    return Ok();
-    //}
+    [HttpPost]
+    public async Task<IActionResult> Post(Product product)
+    {
+        await _service.AddAsync(product);
+        return Ok();
+    }
 }
